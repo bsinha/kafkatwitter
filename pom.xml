@@ -10,9 +10,12 @@
 		<module>kafka-producer-twitter</module>
 		<module>kafka-elastic-consumer</module>
 		<module>kafka-stream-twitter-filter</module>
+		<module>kafka-schema-registry-avro</module>
+        <module>avro-examples</module>
+		<module>kafka-avro-v1</module>
+		<module>kafka-avro-v2</module>
 	</modules>
 	<name>TweetProducer</name>
-
 	<dependencyManagement>
 		<dependencies>
 			<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
