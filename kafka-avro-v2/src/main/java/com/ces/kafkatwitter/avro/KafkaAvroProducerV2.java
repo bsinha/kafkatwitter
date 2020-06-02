@@ -12,7 +12,7 @@ import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class KafkaAvroProducerV1 {
+public class KafkaAvroProducerV2 {
 
 	private static final String bootstrapServer = "127.0.0.1:9092";
 	private static final Map<String, Object> configs = ImmutableMap.<String, Object>builder()
@@ -29,8 +29,8 @@ public class KafkaAvroProducerV1 {
 
 		final KafkaProducer<String, Customer> kafkaProducer = new KafkaProducer<String, Customer>(configs);
 		final String topic = "customer-avro_new";
-		final Customer customer = Customer.newBuilder().setAge(34).setAutomatedEmail(false).setFirstName("Mark")
-				.setLastName("Doe").setHeight(178f).setWeight(75f).build();
+		final Customer customer = Customer.newBuilder().setAge(34).setFirstName("John").setLastName("Doe")
+				.setHeight(178f).setWeight(75f).setPhoneNumber("9716476138").setEmail("email@email.com").build();
 		final ProducerRecord<String, Customer> producerRecord = new ProducerRecord<>(topic, customer);
 
 		kafkaProducer.send(producerRecord, (metadata, exception) -> {
